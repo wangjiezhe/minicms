@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news',
     'django_summernote',
+    'bootstrap3',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -65,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'news.nav_processor.nav_column',
             ],
         },
     },

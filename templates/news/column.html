@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}
-    {{ column.title }}
-{% endblock %}
+{% block title %}{{ column.name }}{% endblock %}
 
 {% block content %}
-    栏目简介： {{ column.intro }}
+    <p>栏目简介： {{ column.intro }}</p>
     栏目文章列表：
     <ul>
     {% for article in column.article_set.all %}

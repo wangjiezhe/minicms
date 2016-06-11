@@ -5,7 +5,7 @@ from .models import Column, Article
 
 
 class ColumnAdmin(SummernoteModelAdmin):
-    list_display = ('name', 'slug', 'intro',)
+    list_display = ('name', 'slug', 'intro', 'nav_display', 'home_display',)
 
 
 class ArticleAdmin(SummernoteModelAdmin):
