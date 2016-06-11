@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 
 
-# Create your models here.
 @python_2_unicode_compatible
 class Column(models.Model):
     name = models.CharField('栏目名称', max_length=256)
@@ -20,6 +20,9 @@ class Column(models.Model):
         verbose_name_plural = '栏目'
         ordering = ['name']
 
+    def get_absolute_url(self):
+        return reverse('column', args=(self.slug,))
+
 
 @python_2_unicode_compatible
 class Article(models.Model):
@@ -31,7 +34,7 @@ class Article(models.Model):
     author = models.ForeignKey('auth.User', blank=True, null=True, verbose_name='作者')
     content = models.TextField('内容', default='', blank=True)
 
-    put_date = models.DateTimeField('发布时间', auto_now_add=True, editable=True)
+    pub_date = models.DateTimeField('发布时间', auto_now_add=True, editable=True)
     update_time = models.DateTimeField('更新时间', auto_now=True, null=True)
 
     published = models.BooleanField('正式发布', default=True)
@@ -42,3 +45,6 @@ class Article(models.Model):
     class Meta:
         verbose_name = '教程'
         verbose_name_plural = '教程'
+
+    def get_absolute_url(self):
+        return reverse('article', args=(self.slug,))

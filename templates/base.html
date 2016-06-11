@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}欢迎光临{% endblock %} - 学堂</title>
+    {% block css %}
+
+    {% endblock %}
+
+    {% block js %}
+
+    {% endblock %}
+</head>
+<body>
+{% block content %}
+    <h1>新闻网</h1>
+{% endblock %}
+
+{% include "baidutongji.html" %}
+</body>
+</html>
