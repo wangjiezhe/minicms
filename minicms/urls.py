@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
-
 from django_summernote import urls as summernote_urls
+
 from news import views as news_views
 
 urlpatterns = [
@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^summernote/', include(summernote_urls)),
     url(r'^$', news_views.index, name='index'),
     url(r'column/(?P<column_slug>[^/]+)/$', news_views.column_detail, name='column'),
-    url(r'news/(?P<article_slug>[^/]+)/$', news_views.article_detail, name='article'),
+    url(r'news/(?P<pk>\d+)/(?P<article_slug>[^/]+)/$', news_views.article_detail, name='article'),
 ]
 
 if settings.DEBUG:

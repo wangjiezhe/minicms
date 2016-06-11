@@ -47,4 +47,4 @@ class Article(models.Model):
         verbose_name_plural = '教程'
 
     def get_absolute_url(self):
-        return reverse('article', args=(self.slug,))
+        return reverse('article', args=(self.pk, self.slug,))
